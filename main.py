@@ -5,7 +5,8 @@ import serial.tools.list_ports
 import paho.mqtt.client as mqttclient
 import time
 import  sys
-feeds = ['linhla/feeds/error_control','linhla/feeds/HCM_Temp','linhla/feeds/LED','linhla/feeds/MICROBIT_TEMP','linhla/feeds/microbit-humid']
+
+feeds = ['linhla/feeds/error_control','linhla/feeds/HCM_Temp','linhla/feeds/LED','linhla/feeds/microbit-temp','linhla/feeds/microbit-humid','linhla/feeds/pump']
 #     feeds subscription
 
 #     utilities function
@@ -25,7 +26,9 @@ def msg(client, userdata, message):
     print("Received "+ message.payload.decode('UTF-8') + " from " + str(message.topic))
     if str(message.topic) == "linhla/feeds/LED":
         client.publish("linhla/feeds/error_control", "{ACK-LED:" + str(message.payload.decode('UTF-8')) + "}")
-        ser.write(message.payload)
+        ser.write((('$' + str(message.payload)[2]).encode()))
+    if str(message.topic) == "linhla/feeds/pump":
+        ser.write((('$' + str(message.payload)[2]).encode()))
 
 def disconnected(client):
     print("Disconnected..")
@@ -39,7 +42,7 @@ def getPort():
     for i in range(0, N):
         port = ports[i]
         strPort = str(port)
-        if "com0com" in strPort:
+        if "USB Serial Device" in strPort:
             splitPort = strPort.split(" ")
             commPort = (splitPort[0])
     print(commPort)
@@ -51,10 +54,10 @@ def processData(data):
     data = data.replace("#", "")
     splitData = data.split(":")
     print(splitData)
-    if splitData[0] == "TEMP":
-        client.publish("linhla/feeds/MICROBIT_TEMP", splitData[1])
-    if splitData[0] == "HUMI":
-        client.publish("linhla/feeds/microbit-humid", splitData[1])
+    if splitData[1] == "TEMP":
+        client.publish("linhla/feeds/microbit-temp", splitData[2])
+    if splitData[1] == "HUMI":
+        client.publish("linhla/feeds/microbit-humid", splitData[2])
 mess = ""
 def readSerial():
     bytesToRead = ser.inWaiting()
@@ -70,25 +73,7 @@ def readSerial():
                 mess = ""
             else:
                 mess = mess[end+1:]
-#     open_weather_map
-weather_key = os.environ.get('weather_map_key')
-HCM_ID = 1566083
-def kToc(kelvin):
-    return kelvin - 273
 
-def getHCMtemp():
-    url = f"https://api.openweathermap.org/data/2.5/weather?id={HCM_ID}&appid={weather_key}"
-    re = requests.get(url)
-    data = re.json()
-    currTemp = data['main']['temp']
-    formattedTemp = '{:.2f}'.format(kToc(currTemp))
-    return formattedTemp
-def getHCMhumid():
-    url = f"https://api.openweathermap.org/data/2.5/weather?id={HCM_ID}&appid={weather_key}"
-    re = requests.get(url)
-    data = re.json()
-    currHumid = data['main']['humidity']
-    return currHumid
 #     broker_address : adafruit IPv4 address
 
 broker_address = "52.54.163.195"
@@ -115,7 +100,6 @@ ser = serial.Serial(port=getPort(), baudrate=115200)
 #     loop
 loop_flag = 1
 while loop_flag == 1:
-
     if isMicrobitConnected:
         readSerial()
     if waiting_counter > 0:

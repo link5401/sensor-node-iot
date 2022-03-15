@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fb21bc85-39ee-449d-925e-021fcd870aba" name="Changes" comment="" />
+    <list default="true" id="fb21bc85-39ee-449d-925e-021fcd870aba" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/MicroPython.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/paho-mqtt.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/paho-mqtt.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pip.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/pip.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pip3.9.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/pip3.9.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Scripts/pip3.exe" beforeDir="false" afterPath="$PROJECT_DIR$/Scripts/pip3.exe" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +23,10 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MicroPythonDevices" devicePath="COM3" autoDetectDevicePath="false" />
   <component name="ProjectId" id="1yXcMUZd0nRg1D9uIzldkvLC8Vr" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -22,17 +35,25 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.micropython.configurable" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Python.main">
+    <configuration name="Flash main.py" type="MicroPythonConfigurationType" factoryName="MicroPython" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/main.py">
+      <module name="paho-mqtt" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Flash micro.py" type="MicroPythonConfigurationType" factoryName="MicroPython" singleton="false" temporary="true" nameIsGenerated="true" path="$PROJECT_DIR$/micro.py">
+      <module name="paho-mqtt" />
+      <method v="2" />
+    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="paho-mqtt" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
-        <env name="AIO_KEY" value="aio_lXyT88I3zryyB5uGnAOnrmKnUX5x" />
-        <env name="weather_map_key" value="b6f78ecac159f732de6ac18e7f05339a" />
+        <env name="AIO_KEY" value="aio_KGNM62Ux18KiQnFRgjX4d7MYpDx7" />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
@@ -48,9 +69,16 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <list>
+      <item itemvalue="MicroPython.Flash main.py" />
+      <item itemvalue="MicroPython.Flash micro.py" />
+      <item itemvalue="Python.main" />
+    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Python.main" />
+        <item itemvalue="MicroPython.Flash micro.py" />
+        <item itemvalue="MicroPython.Flash main.py" />
       </list>
     </recent_temporary>
   </component>
@@ -64,5 +92,17 @@
       <updated>1632401326069</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
